@@ -3,3 +3,10 @@
 node_modules/*
 !node_modules/.gitignore
 !src/node_modules/
+npm-debug.log
+public/*
+!public/.gitignore
+etc/nginx/ssl
+share/nginx/assets
+build
+sensitive
