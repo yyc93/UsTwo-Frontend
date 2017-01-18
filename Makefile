@@ -1,6 +1,6 @@
 BASE_PATH ?= $(PWD)
 VERSION ?= dev
-IDENTITY_FILE ?= ~/.docker/machine/machines/default/id_rsa
+IDENTITY_FILE ?= ~/.docker/machine/machines/ustwosite/id_rsa
 SOURCE_BRANCH ?= master
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
 

@@ -34,7 +34,7 @@ images.
 Some porcelain tasks have aliases to make them less boring.  The alias are
 between parenthesis.
 
-*Note* All porcelain tasks can be found in [Makefile](../Makefile).
+*Note* All porcelain tasks can be found in [Makefile](./Makefile).
 
 * `deploy`: Removes any container belonging to the project and creates new ones.
 * `deploy-production`: Same as above with implicit setup for production.
