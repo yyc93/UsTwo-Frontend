@@ -1,4 +1,4 @@
-# ustwo.com Frontend website
+# ustwo.com frontend website
 
 ## Overview
 
