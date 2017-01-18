@@ -245,8 +245,6 @@ And Nginx logs with:
         $ make proxy-log
 ### Simple build steps
 
-## Build steps
-
 * Open a Terminal window and go to the project folder.
 
         $ make ls                       # Lists all images related to the project.
