@@ -15,7 +15,8 @@ RUN apt-get update -yqq \
 
 RUN mkdir /root/.parallel \
  && touch /root/.parallel/will-cite
-
+ 
+#RUN npm config set registry http://registry.npmjs.org/
 RUN npm install -g node-sass \
  && ln -s /usr/local/bin/node-sass /usr/local/bin/sassc
 

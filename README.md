@@ -253,7 +253,7 @@ And Nginx logs with:
                                         # Normalise cert name to usweb.
         $ make vault-build              # Build the vault cert
         $ make compiler-build build     # Prepare a new environment
-        $ make -i love stuff LOCAL_FS=true      # Deploy frontend website
+        $ make -i love LOCAL_FS=true    # Deploy frontend website
 
 * Brew install method
 
