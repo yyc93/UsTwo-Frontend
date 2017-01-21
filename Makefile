@@ -58,7 +58,8 @@ include tasks/*.mk
 ###############################################################################
 
 ## Porcelain ##################################################################
-install: network-create vault-create assets-create app-create sandbox-create diversity-create proxy-create
+install: network-create vault-create assets-create app-create sandbox-create proxy-create
+#install: network-create vault-create assets-create app-create sandbox-create diversity-create proxy-create
 build-all: compiler-build sandbox-build build
 vault: vault-save
 build: app-build assets-build sandbox-build
