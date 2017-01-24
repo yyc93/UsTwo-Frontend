@@ -5,7 +5,8 @@ SOURCE_BRANCH ?= master
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
 project_name := usweb
-project_namespace := ustwo/$(project_name)
+#project_namespace := ustwo/$(project_name)
+project_namespace := ustwoweb/frontend
 internal_path := /home/ustwo
 
 ## CLI aliases ################################################################

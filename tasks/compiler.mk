@@ -1,6 +1,7 @@
 ## Compiler tasks #############################################################
 compiler_id = compiler
-compiler_image := ustwo/usweb:$(compiler_id)
+#compiler_image := ustwo/usweb:$(compiler_id)
+compiler_image := ustwoweb/frontend:$(compiler_id)
 compiler_name = $(project_name)_$(compiler_id)
 compiler_dockerfile = Dockerfile.$(compiler_id)
 
