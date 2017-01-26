@@ -253,12 +253,91 @@ And Nginx logs with:
                                         # Normalise cert name to usweb.
         $ make vault-build              # Build the vault cert
         $ make compiler-build build     # Prepare a new environment
-        $ make -i love LOCAL_FS=true    # Deploy frontend website
+        $ make -i love LOCAL_FS=true VERBOSE=true    # Deploy frontend website
+   
+   You can check the site via following:
+```
+        https://192.168.99.100:9443
+```
+* Test original frontend site locally
+
+        $ make build-org     # Prepare a original environment
+        $ make -i install-org LOCAL_FS=true VERBOSE=true    # Deploy original frontend website
+
+  If you want to remove this container
+
+        $ make org-rm
+
+  You can check via following:
+
+```
+        http://192.168.99.100:9080
+```
+
+* Deploy and live site on server 
+
+Must be changed some parts in /etc/nginx/conf.d/default.conf
+
+```
+        # HTTP connection for CDN to source files from
+        server {
+          listen 80;
+          server_name origin.ustwo.com usweb_proxy;
+
+          include /etc/nginx/locations/production-org.conf;
+        }
+```
+
+To
+
+```
+        # HTTP connection for CDN to source files from
+        server {
+          listen 80;
+          server_name origin.ustwo.com usweb_proxy;
+
+          include /etc/nginx/locations/production.conf;
+        }
+```
+
+And
+```
+        upstream newbackend {
+          server 138.197.213.140:443;
+        }
+```
+
+To 
+```
+        upstream newbackend {
+          server <YOUR DOMAIN NAME>:443;
+        }
+```
+
+Also in /etc/nginx/api.conf
+```
+        location @api {
+          proxy_pass https://newbackend_dev;
+          proxy_redirect off;
+
+          include /etc/nginx/proxy.conf;
+        }
+```
+
+To
+
+```
+        location @api {
+          proxy_pass https://newbackend;
+          proxy_redirect off;
+
+          include /etc/nginx/proxy.conf;
+        }
+```
 
 * Brew install method
 
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 
 ### Watch and reload
 
