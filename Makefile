@@ -60,8 +60,10 @@ include tasks/*.mk
 
 ## Porcelain ##################################################################
 install: network-create vault-create assets-create app-create sandbox-create proxy-create
+install-org: org-create
 #install: network-create vault-create assets-create app-create sandbox-create diversity-create proxy-create
 build-all: compiler-build sandbox-build build
+build-org: org-build
 vault: vault-save
 build: app-build assets-build sandbox-build
 test: assets-unit-test assets-integration-test
@@ -73,6 +75,7 @@ clean-no-confirm:
 clean:
 	$(call confirm,"Are you sure you want to clean __$(DOCKER_MACHINE_NAME)__?",$(MAKE) -i clean-no-confirm)
 deploy: clean-no-confirm install
+deploy-org: install-org
 deploy-production:
 	$(MAKE) -i deploy \
 		PROXY_HTTPS_PORT=443 \
