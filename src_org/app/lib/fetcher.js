@@ -14,6 +14,7 @@ function fetcher (config) {
   const mergedConfig = Object.assign({}, defaultConfig, config);
   const url = mergedConfig.api() + mergedConfig.url;
   log('Fetching:', url);
+  log('Proxy:', mergedConfig.proxy());
   const req = fetch(url, mergedConfig)
     .then(response => {
       remove(mergedConfig.url);
